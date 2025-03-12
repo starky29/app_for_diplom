@@ -70,12 +70,12 @@ jobs:
 
       - name: Replace image tag in app.yaml
         run: |
-          if [ ! -f /home/app_for_diplom/manifest/app.yaml ]; then
+          if [ ! -f /home/ubuntu/manifest/app.yaml ]; then
             echo "app.yaml not found in the current directory"
             exit 1
           fi
-          sed -i "s|image: {{ env.IMAGE_NAME }}:.*|image: ${{ env.IMAGE_NAME }}:${{ env.VERSION }}|" /home/app_for_diplom/manifest/app.yaml 
+          sed -i "s|image: {{ env.IMAGE_NAME }}:.*|image: ${{ env.IMAGE_NAME }}:${{ env.VERSION }}|" /home/ubuntu/manifest/app.yaml 
 
       - name: Apply Kubernetes manifests
         run: |
-          kubectl apply -f /home/app_for_diplom/manifest/app.yaml -n diplom
+          kubectl apply -f /home/ubuntu/manifest/app.yaml -n diplom
