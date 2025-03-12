@@ -11,7 +11,7 @@ env:
   DEPLOYMENT_NAME: diplom
 
 jobs:
-  build-docker-image:
+  build:
     runs-on: self-hosted
     steps:
       # Шаг 1: Клонируем проект
